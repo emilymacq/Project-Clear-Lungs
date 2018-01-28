@@ -31,7 +31,7 @@ def getBGS(Bspec, waxis):
 
 
 
-def main():
+#def main():
     file = sys.argv[1]
     print(file)
     sampling_rate, sound = scipy.io.wavfile.read(file)
