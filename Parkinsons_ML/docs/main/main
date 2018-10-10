@@ -1,0 +1,70 @@
+"""
+This script as the main for the project
+"""
+
+# import packages or libraries
+import sys
+import logging
+
+# Logger
+logger = logging.getLogger()
+logger.level = logging.DEBUG
+logger.addHandler(logging.StreamHandler(sys.stdout))
+
+# import methods from other scripts
+from storage.DataLoader import data_loader
+from DataOverview import analysis_controller
+from Study_Ga import study_ga_controller
+
+# Constant Declarations
+
+
+# ----------------------------------------------- MAIN CONTROLLER ---------------------------------------------------- #
+
+def main_controller():
+    """
+    Main Controller of the project
+    :return: None
+    """
+    dataloader = data_loader()
+
+    demographics_data = dataloader.load_demographics_data()
+    analysis_controller(demographics_data)
+    study_ga_controller(demographics_data)
+    return
+
+
+# ------------------------------------------------ CONSOLE PRINTER --------------------------------------------------- #
+
+def print_separator():
+    print("-------------------------------------------------------------")
+
+
+def print_newline():
+    print("\n")
+
+
+def print_header():
+    print_separator()
+    print("Parkinson's Machine Learning")
+    print_separator()
+
+
+def print_footer():
+    print_newline()
+    print("Finish run...")
+    print_separator()
+
+
+# ------------------------------------------------------ MAIN -------------------------------------------------------- #
+
+if __name__ == "__main__":
+
+    # Print header
+    print_header()
+
+    # Start analysis
+    main_controller()
+
+    # Print footer
+    print_footer()
