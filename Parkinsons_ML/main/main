@@ -29,7 +29,7 @@ def main_controller():
     dataloader = data_loader()
 
     demographics_data = dataloader.load_demographics_data()
-    analysis_controller(demographics_data)
+    # analysis_controller(demographics_data)
     study_ga_controller(demographics_data)
     return
 
