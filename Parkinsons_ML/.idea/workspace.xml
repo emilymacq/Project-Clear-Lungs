@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9fbb11b0-4d3c-4824-9cd6-c24d4932de78" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaCo02_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaCo02_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaCo04_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaCo04_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaCo08_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaCo08_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaCo13_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaCo13_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaPt07_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaPt07_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaPt14_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaPt14_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaPt21_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaPt21_01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/GaPt26_01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/patient_data/GaPt26_01.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/Study_Ga.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Study_Ga.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/feature_extraction/FFT.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/feature_extraction/FFT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main" beforeDir="false" afterPath="$PROJECT_DIR$/main/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/storage/DataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/storage/DataLoader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +21,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Parkinsons_ML$main.coverage" NAME="main Coverage Results" MODIFIED="1540744490607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/Parkinsons_ML$main.coverage" NAME="main Coverage Results" MODIFIED="1541350458738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/Parkinsons_ML$Study_Ga.coverage" NAME="Study_Ga Coverage Results" MODIFIED="1541349892648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -35,26 +42,30 @@
     <session id="700804470">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="main" value="1" />
-          <entry key="py" value="13" />
+          <entry key="main" value="2" />
+          <entry key="py" value="16" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="14" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2353" />
+          <entry key="Python" value="4101" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -62,7 +73,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="main" value="2" />
-          <entry key="py" value="2351" />
+          <entry key="py" value="4099" />
         </counts>
       </usages-collector>
     </session>
@@ -72,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/main">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+            <state relative-caret-position="210">
+              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -81,21 +92,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/Study_Ga.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="369">
+              <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding>
-                <element signature="e#78#97#0" expanded="true" />
-                <element signature="e#805#978#0" />
-                <element signature="e#1006#1015#0" />
-                <element signature="e#1045#1080#0" />
-                <element signature="e#3132#3356#0" />
-                <element signature="e#3520#4302#0" />
-                <element signature="e#4631#4737#0" />
-                <element signature="e#4822#4997#0" />
-                <element signature="e#5075#5204#0" />
-                <marker date="1540744429581" expanded="true" signature="4120:4585" ph="..." />
-                <marker date="1540744429581" expanded="true" signature="6492:7073" ph="..." />
-                <marker date="1540744429581" expanded="true" signature="7122:7720" ph="..." />
+                <element signature="e#78#87#0" expanded="true" />
+                <element signature="e#4682#4954#0" />
+                <element signature="e#4747#4971#0" />
+                <element signature="e#5135#5917#0" />
+                <element signature="e#5962#6726#0" />
+                <element signature="e#6766#7435#0" />
+                <element signature="e#7532#8311#0" />
+                <element signature="e#7917#8023#0" />
+                <element signature="e#8108#8283#0" />
+                <element signature="e#8361#8490#0" />
+                <marker date="1541350464964" expanded="true" signature="2701:2707" ph="..." />
+                <marker date="1541350464964" expanded="true" signature="4177:4179" ph="..." />
+                <marker date="1541350464964" expanded="false" signature="4274:4650" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/storage/DataLoader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="e#121#130#0" expanded="true" />
+                <element signature="e#498#605#0" />
+                <element signature="e#657#895#0" />
+                <element signature="e#949#1128#0" />
+                <element signature="e#463#920#0" />
+                <element signature="e#1000#1298#0" />
+                <element signature="e#1378#1676#0" />
+                <element signature="e#1866#2264#0" />
               </folding>
             </state>
           </provider>
@@ -104,7 +135,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/feature_extraction/FFT.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
+            <state relative-caret-position="345">
               <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
               <folding>
                 <element signature="e#20#34#0" expanded="true" />
@@ -116,11 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/feature_extraction/abs_energy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="150">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#79#93#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,11 +171,11 @@
         <option value="$PROJECT_DIR$/main/feature_extraction/BGS.py" />
         <option value="$PROJECT_DIR$/main/feature_extraction/NGS.py" />
         <option value="$PROJECT_DIR$/main/feature_extraction/MFCC.py" />
-        <option value="$PROJECT_DIR$/main/storage/DataLoader.py" />
         <option value="$PROJECT_DIR$/main/DataOverview.py" />
         <option value="$PROJECT_DIR$/main/main" />
         <option value="$PROJECT_DIR$/main/feature_extraction/abs_energy.py" />
         <option value="$PROJECT_DIR$/main/feature_extraction/FFT.py" />
+        <option value="$PROJECT_DIR$/main/storage/DataLoader.py" />
         <option value="$PROJECT_DIR$/main/Study_Ga.py" />
       </list>
     </option>
@@ -181,12 +209,6 @@
               <item name="Parkinsons_ML" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Parkinsons_ML" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Parkinsons_ML" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="feature_extraction" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -200,6 +222,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/input/patient_data" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -212,7 +239,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Study_Ga" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="untitled folder" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/Study_Ga.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="untitled folder" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -235,9 +284,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.Study_Ga" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Study_Ga" />
       </list>
     </recent_temporary>
   </component>
@@ -256,15 +310,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2536349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13570274" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.32876712" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27671233" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.27671233" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -274,6 +328,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32876712" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -292,33 +347,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>163</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/Study_Ga.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="36" />
+          <line>70</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -333,18 +363,6 @@
     <entry file="file://$PROJECT_DIR$/main/feature_extraction/MFCC.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/storage/DataLoader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="e#463#920#0" />
-            <element signature="e#1000#1298#0" />
-            <element signature="e#1378#1676#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/LogGenerator.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -355,23 +373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
           <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
-          <folding>
-            <element signature="e#649#1563#0" />
-            <element signature="e#1618#1770#0" />
-            <element signature="e#1827#2022#0" />
-            <element signature="e#2075#2384#0" />
-            <element signature="e#2437#2720#0" />
-            <element signature="e#2773#2902#0" />
-            <element signature="e#2956#3117#0" />
-            <element signature="e#3172#3375#0" />
-            <element signature="e#3429#3634#0" />
-            <element signature="e#3800#4459#0" />
-            <element signature="e#4624#5270#0" />
-            <element signature="e#5451#5599#0" />
-            <element signature="e#5648#5797#0" />
-            <element signature="e#5858#6009#0" />
-            <element signature="e#6182#6647#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -382,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/main">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pandas/core/frame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -396,9 +390,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pandas/core/indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="867" column="34" lean-forward="true" selection-start-line="867" selection-start-column="34" selection-end-line="867" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/demographics.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/format.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/storage/DataLoader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#121#130#0" expanded="true" />
+            <element signature="e#498#605#0" />
+            <element signature="e#657#895#0" />
+            <element signature="e#949#1128#0" />
+            <element signature="e#463#920#0" />
+            <element signature="e#1000#1298#0" />
+            <element signature="e#1378#1676#0" />
+            <element signature="e#1866#2264#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/feature_extraction/FFT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="345">
           <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
           <folding>
             <element signature="e#20#34#0" expanded="true" />
@@ -408,31 +436,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/feature_extraction/abs_energy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="150">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#79#93#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/main">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/Study_Ga.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="369">
+          <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
           <folding>
-            <element signature="e#78#97#0" expanded="true" />
-            <element signature="e#805#978#0" />
-            <element signature="e#1006#1015#0" />
-            <element signature="e#1045#1080#0" />
-            <element signature="e#3132#3356#0" />
-            <element signature="e#3520#4302#0" />
-            <element signature="e#4631#4737#0" />
-            <element signature="e#4822#4997#0" />
-            <element signature="e#5075#5204#0" />
-            <marker date="1540744429581" expanded="true" signature="4120:4585" ph="..." />
-            <marker date="1540744429581" expanded="true" signature="6492:7073" ph="..." />
-            <marker date="1540744429581" expanded="true" signature="7122:7720" ph="..." />
+            <element signature="e#78#87#0" expanded="true" />
+            <element signature="e#4682#4954#0" />
+            <element signature="e#4747#4971#0" />
+            <element signature="e#5135#5917#0" />
+            <element signature="e#5962#6726#0" />
+            <element signature="e#6766#7435#0" />
+            <element signature="e#7532#8311#0" />
+            <element signature="e#7917#8023#0" />
+            <element signature="e#8108#8283#0" />
+            <element signature="e#8361#8490#0" />
+            <marker date="1541350464964" expanded="true" signature="2701:2707" ph="..." />
+            <marker date="1541350464964" expanded="true" signature="4177:4179" ph="..." />
+            <marker date="1541350464964" expanded="false" signature="4274:4650" ph="..." />
           </folding>
         </state>
       </provider>
