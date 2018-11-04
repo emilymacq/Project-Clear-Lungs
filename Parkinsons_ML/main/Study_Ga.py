@@ -3,15 +3,19 @@ This script is written to do analysis on GA study
 """
 
 # import libraries
-import pandas as pd
-import numpy as np
+import re
 import tsfresh
+import numpy as np
+import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("darkgrid")
+from sklearn.model_selection import StratifiedShuffleSplit, train_test_split
+
 
 # import methods from other scripts / packages
+from storage.DataLoader import data_loader
 from feature_extraction.FFT import fft_extractor
 from feature_extraction.abs_energy import AbsoluteEnergyCalculator
 
@@ -51,53 +55,72 @@ def group_1_analysis(group_1_data):
     print("Group 1 Analysis:")
     print("#####################################")
 
-    # Read data from a participant in group 1 - PD Patient
-    # GaPt14 : Age 56 Gender 1
-    gapt14_data_1 = pd.read_csv("../input/GaPt14_01.txt", header=None, sep='\t', names=col_names)
-    # gapt14_data_2 = pd.read_csv("../input/GaPt14_02.txt", header=None, sep='\t', names=col_names)
-    # gapt14_data_10 = pd.read_csv("../input/GaPt14_10.txt", header=None, sep='\t', names=col_names)
-
-    # GaPt21 : Age 81 Gender 1
-    gapt21_data_1 = pd.read_csv("../input/GaPt21_01.txt", header=None, sep='\t', names=col_names)
-    # gapt21_data_2 = pd.read_csv("../input/GaPt21_02.txt", header=None, sep='\t', names=col_names)
-    # gapt21_data_10 = pd.read_csv("../input/GaPt21_10.txt", header=None, sep='\t', names=col_names)
-
-    # GaPt07 : Age 57 Gender 2
-    # gapt7_data_1 = pd.read_csv("../input/GaPt07_01.txt", header=None, sep='\t', names=col_names)
-    # gapt7_data_2 = pd.read_csv("../input/GaPt07_02.txt", header=None, sep='\t', names=col_names)
-
-    # GaPt26 : Age 78 Gender 2
-    # gapt26_data_1 = pd.read_csv("../input/GaPt26_01.txt", header=None, sep='\t', names=col_names)
-    # gapt26_data_2 = pd.read_csv("../input/GaPt26_02.txt", header=None, sep='\t', names=col_names)
-    # gapt26_data_10 = pd.read_csv("../input/GaPt26_10.txt", header=None, sep='\t', names=col_names)
-
-
-    # plot_patient_data(gapt14_data_1, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 GaPt14")
-    # plot_zoomed_patient_data(gapt14_data_1, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 GaPt14")
-
-    all_patient_dataframe = pd.DataFrame(columns=['Patient_Number', 'Study', 'Foot', 'Median', 'Max', 'Min', 'Skewness', 'Std', 'Variance', 'Abs_Energy',
-                                              'coeff_1', 'coeff_2', 'coeff_3', 'coeff_4',
-                                              'aggtype_centroid', 'aggtype_variance', 'aggtype_skew', 'aggtype_kurtosis'])
+    # Create Empty Dataframe
+    all_patient_dataframe = pd.DataFrame(
+        columns=['Patient_Number', 'Study', 'Foot', 'Median', 'Max', 'Min', 'Skewness', 'Std', 'Variance', 'Abs_Energy',
+                 'coeff_1', 'coeff_2', 'coeff_3', 'coeff_4',
+                 'aggtype_centroid', 'aggtype_variance', 'aggtype_skew', 'aggtype_kurtosis'])
 
     df1 = pd.DataFrame([[np.nan] * len(all_patient_dataframe.columns)], columns=all_patient_dataframe.columns)
 
-    all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
-    all_patient_dataframe = add_patient_data(all_patient_dataframe, gapt14_data_1, 14, 'GaPt', 'left')
-    all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
-    all_patient_dataframe = add_patient_data(all_patient_dataframe, gapt14_data_1, 14, 'GaPt', 'right')
+    patient_data_loader = data_loader()
+    patient_data_file_paths = patient_data_loader.get_patient_file_paths()
 
-    all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
-    add_patient_data(all_patient_dataframe, gapt21_data_1, 21, 'GaPt')
+    all_patient_dataframe = GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, all_patient_dataframe, df1)
 
+    train_set, test_set = train_test_split(all_patient_dataframe, test_size=0.25, random_state=42)
+    
+    print("Train Set:")
+    print_newline()
+    print(train_set)
+
+    print_newline()
+    
+    print("Test Set:")
+    print_newline()
+    print(test_set)
+
+
+def GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, all_patient_dataframe, df1):
+
+    for patient_file_path in patient_data_file_paths:
+        # Read patient data
+        patient_data = patient_data_loader.read_patient_data(patient_file_path)
+
+        filename_fields = extract_fields_from_filename(patient_data_loader, patient_file_path)
+        study_name = filename_fields.group(1)
+        patient_number = filename_fields.group(2)
+        data_file_number = filename_fields.group(3)
+
+        # plot_patient_data(patient_data, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 " + study_name + patient_number)
+        # plot_zoomed_patient_data(patient_data, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 " + study_name + patient_number)
+
+        # add empty row entry
+        all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
+        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, 'left')
+
+        all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
+        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, 'right')
+
+    return all_patient_dataframe
+
+
+def extract_fields_from_filename(patient_data_loader, patient_file_path):
+    patient_filename = patient_data_loader.extract_file_name(patient_file_path)
+
+    pattern = "([A-Za-z]+)([\d]+)_([\d]+)"
+    fields_from_filename = re.match(pattern, patient_filename)
+    return fields_from_filename
 
 
 def add_patient_data(all_patient_dataframe, patient_data, patient_number, patient_study, foot):
-    all_patient_dataframe['Patient_Number'] = patient_number
-    all_patient_dataframe['Study'] = patient_study
-    all_patient_dataframe['Foot'] = foot
+    all_patient_dataframe.loc[0, 'Patient_Number'] = patient_number
+    all_patient_dataframe.loc[0, 'Study'] = patient_study
+    all_patient_dataframe.loc[0, 'Foot'] = foot
 
-    patient_row_entry = all_patient_dataframe[(all_patient_dataframe['Patient_Number'] == patient_number) & (all_patient_dataframe['Study'] == patient_study) & (all_patient_dataframe['Foot'] == foot)]
-    patient_row_entry = extract_features(patient_row_entry, patient_data)
+    fft = fft_extractor()
+    abs_en = AbsoluteEnergyCalculator()
+    all_patient_dataframe = extract_features(all_patient_dataframe, patient_data, foot, fft, abs_en)
     return all_patient_dataframe
 
 
@@ -114,7 +137,7 @@ def group_2_analysis(group_2_data):
     # group_2_study_si()
 
 
-# -------------------------------------------------- PLOTTING METHODS ------------------------------------------------ #
+# ------------------------------------------ FEATURE EXTREACTION METHODS --------------------------------------------- #
 
 def find_gait_cycle(patient_data):
     '''
@@ -134,18 +157,19 @@ def find_gait_cycle(patient_data):
     print_seperator()
 
 
-def extract_features(patient_entry, patient_data):
+def extract_features(all_patient_dataframe, patient_data, foot, fft, abs_en):
+    if foot == "left":
+        all_patient_dataframe = add_foot_coeffs(all_patient_dataframe, fft, patient_data, 'left')
+        all_patient_dataframe.loc[0, 'Abs_Energy'] = abs_en.calculate_abs_energy(patient_data[['Time_sec', 'TF_L']], 'TF_L')
+        all_patient_dataframe = extract_eda_features(patient_data[['Time_sec', 'TF_L']], 'TF_L', all_patient_dataframe)
+    elif foot == "right":
+        all_patient_dataframe = add_foot_coeffs(all_patient_dataframe, fft, patient_data, 'right')
+        all_patient_dataframe.loc[0, 'Abs_Energy'] = abs_en.calculate_abs_energy(patient_data[['Time_sec', 'TF_R']], 'TF_R')
+        all_patient_dataframe = extract_eda_features(patient_data[['Time_sec', 'TF_R']], 'TF_R', all_patient_dataframe)
+    return all_patient_dataframe
 
-    fft = fft_extractor()
-    patient_entry = add_foot_coeffs(patient_entry, fft, patient_data, 'left')
-    patient_entry = add_foot_coeffs(patient_entry, fft, patient_data, 'right')
 
-    abs_en = AbsoluteEnergyCalculator()
-    patient_entry['Abs_Energy'] = abs_en.calculate_abs_energy(patient_data[['Time_sec', 'TF_L']], 'TF_L')
-    # extract_eda_features(patient_data[['Time_sec', 'TF_L']], 'TF_L')
-    return patient_entry
-
-def add_foot_coeffs(patient_entry, fft, patient_data, feet_type):
+def add_foot_coeffs(all_patient_dataframe, fft, patient_data, feet_type):
     if feet_type == 'left':
         foot_coeff = fft.calculate_fft_coeff(patient_data[['Time_sec', 'TF_L']], 'TF_L')
     elif feet_type == 'right':
@@ -153,21 +177,21 @@ def add_foot_coeffs(patient_entry, fft, patient_data, feet_type):
     else:
         raise ValueError("add_foot_coeffs() : Wrong value supplied")
 
-    patient_entry['coeff_1'] = foot_coeff['coeff_1__attr_"real"']
-    patient_entry['coeff_2'] = foot_coeff['coeff_2__attr_"real"']
-    patient_entry['coeff_3'] = foot_coeff['coeff_3__attr_"real"']
-    patient_entry['coeff_4'] = foot_coeff['coeff_4__attr_"real"']
-    return patient_entry
+    all_patient_dataframe.loc[0, 'coeff_1'] = foot_coeff['coeff_1__attr_"real"']
+    all_patient_dataframe.loc[0, 'coeff_2'] = foot_coeff['coeff_2__attr_"real"']
+    all_patient_dataframe.loc[0, 'coeff_3'] = foot_coeff['coeff_3__attr_"real"']
+    all_patient_dataframe.loc[0, 'coeff_4'] = foot_coeff['coeff_4__attr_"real"']
+    return all_patient_dataframe
 
 
-def extract_eda_features(patient_data, col_name):
-    feat_median = tsfresh.feature_extraction.feature_calculators.median(patient_data[col_name])
-    feat_max = tsfresh.feature_extraction.feature_calculators.maximum(patient_data[col_name])
-    feat_min = tsfresh.feature_extraction.feature_calculators.minimum(patient_data[col_name])
-    feat_skewness = tsfresh.feature_extraction.feature_calculators.skewness(patient_data[col_name])
-    feat_std = tsfresh.feature_extraction.feature_calculators.standard_deviation(patient_data[col_name])
-    feat_var = tsfresh.feature_extraction.feature_calculators.variance(patient_data[col_name])
-    return
+def extract_eda_features(patient_data, col_name, all_patient_dataframe):
+    all_patient_dataframe.loc[0, 'Median'] = tsfresh.feature_extraction.feature_calculators.median(patient_data[col_name])
+    all_patient_dataframe.loc[0, 'Max'] = tsfresh.feature_extraction.feature_calculators.maximum(patient_data[col_name])
+    all_patient_dataframe.loc[0, 'Min'] = tsfresh.feature_extraction.feature_calculators.minimum(patient_data[col_name])
+    all_patient_dataframe.loc[0, 'Skewness'] = tsfresh.feature_extraction.feature_calculators.skewness(patient_data[col_name])
+    all_patient_dataframe.loc[0, 'Std'] = tsfresh.feature_extraction.feature_calculators.standard_deviation(patient_data[col_name])
+    all_patient_dataframe.loc[0, 'Variance'] = tsfresh.feature_extraction.feature_calculators.variance(patient_data[col_name])
+    return all_patient_dataframe
 
 
 # -------------------------------------------------- PLOTTING METHODS ------------------------------------------------ #
