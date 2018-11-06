@@ -7,11 +7,17 @@ import re
 import tsfresh
 import numpy as np
 import pandas as pd
+from pandas import ExcelWriter
+from sklearn.preprocessing import LabelBinarizer
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("darkgrid")
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import StratifiedShuffleSplit, train_test_split
+from ml_models.LinearRegression import LinearRegressionCalculator
+from ml_models.DecisionTreeRegression import DecisionTreeRegressionCalculator
+from ml_models.RandomForestRegression import RandomForestRegressionCalculator
 
 
 # import methods from other scripts / packages
@@ -28,7 +34,7 @@ Main Controller
 """
 def study_ga_controller(demographics_data):
     group_1_data, group_2_data = split_group_data(demographics_data)
-    group_1_analysis(group_1_data)
+    group_1_analysis(group_1_data, group_2_data)
     # group_2_analysis(group_2_data)
 
 
@@ -49,7 +55,7 @@ def print_seperator():
 # ----------------------------------------------------- GROUP 1 ------------------------------------------------------ #
 
 
-def group_1_analysis(group_1_data):
+def group_1_analysis(group_1_data, group_2_data):
     print_newline()
     print("#####################################")
     print("Group 1 Analysis:")
@@ -57,28 +63,44 @@ def group_1_analysis(group_1_data):
 
     # Create Empty Dataframe
     all_patient_dataframe = pd.DataFrame(
-        columns=['Patient_Number', 'Study', 'Foot', 'Median', 'Max', 'Min', 'Skewness', 'Std', 'Variance', 'Abs_Energy',
-                 'coeff_1', 'coeff_2', 'coeff_3', 'coeff_4',
-                 'aggtype_centroid', 'aggtype_variance', 'aggtype_skew', 'aggtype_kurtosis'])
+        columns=['ID', 'Patient_Number', 'Study', 'Patient_Type', 'Foot', 'file_number', 'Median', 'Max', 'Min', 'Skewness', 'Std', 'Variance', 'Abs_Energy',
+                 'coeff_1', 'coeff_2', 'coeff_3', 'coeff_4'])
 
     df1 = pd.DataFrame([[np.nan] * len(all_patient_dataframe.columns)], columns=all_patient_dataframe.columns)
 
     patient_data_loader = data_loader()
     patient_data_file_paths = patient_data_loader.get_patient_file_paths()
 
-    all_patient_dataframe = GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, all_patient_dataframe, df1)
+    group_1_2_data = group_1_data[['ID', 'Gender', 'HoehnYahr']].append(group_2_data[['ID', 'Gender', 'HoehnYahr']])
 
-    train_set, test_set = train_test_split(all_patient_dataframe, test_size=0.25, random_state=42)
-    
+    # all_patient_dataframe = GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, all_patient_dataframe, df1)
+
+    # all_patient_dataframe = pd.merge(all_patient_dataframe, group_1_2_data, how='left', on=['ID'])
+
+    # writer = ExcelWriter('Study_Ga_df.xlsx')
+    # all_patient_dataframe.to_excel(writer, 'Sheet1')
+    # writer.save()
+
+    all_patient_dataframe = pd.read_excel('Study_Ga_df.xlsx', sheet_name="Sheet1")
+
+    split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    for train_index, test_index in split.split(all_patient_dataframe, all_patient_dataframe["HoehnYahr"]):
+        strat_train_set = all_patient_dataframe.loc[train_index]
+        strat_test_set = all_patient_dataframe.loc[test_index]
+
+    '''
     print("Train Set:")
     print_newline()
-    print(train_set)
+    print(strat_train_set)
 
     print_newline()
     
     print("Test Set:")
     print_newline()
-    print(test_set)
+    print(strat_test_set)
+    '''
+
+    train_models(strat_train_set, strat_test_set)
 
 
 def GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, all_patient_dataframe, df1):
@@ -88,19 +110,21 @@ def GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, al
         patient_data = patient_data_loader.read_patient_data(patient_file_path)
 
         filename_fields = extract_fields_from_filename(patient_data_loader, patient_file_path)
+
         study_name = filename_fields.group(1)
-        patient_number = filename_fields.group(2)
-        data_file_number = filename_fields.group(3)
+        patient_type = filename_fields.group(2)
+        patient_number = filename_fields.group(3)
+        data_file_number = filename_fields.group(4)
 
         # plot_patient_data(patient_data, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 " + study_name + patient_number)
         # plot_zoomed_patient_data(patient_data, 'Time_sec', 'TF_L', "Total force on left foot for patient: Group 1 " + study_name + patient_number)
 
         # add empty row entry
         all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
-        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, 'left')
+        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, patient_type, 'left', data_file_number)
 
         all_patient_dataframe = df1.append(all_patient_dataframe, ignore_index=True)
-        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, 'right')
+        all_patient_dataframe = add_patient_data(all_patient_dataframe, patient_data, patient_number, study_name, patient_type, 'right', data_file_number)
 
     return all_patient_dataframe
 
@@ -108,21 +132,70 @@ def GenerateAllPatientDataframe(patient_data_loader, patient_data_file_paths, al
 def extract_fields_from_filename(patient_data_loader, patient_file_path):
     patient_filename = patient_data_loader.extract_file_name(patient_file_path)
 
-    pattern = "([A-Za-z]+)([\d]+)_([\d]+)"
+    pattern = "([A-Z][a-z])([A-Z][a-z])([\d]+)_([\d]+)"
     fields_from_filename = re.match(pattern, patient_filename)
     return fields_from_filename
 
 
-def add_patient_data(all_patient_dataframe, patient_data, patient_number, patient_study, foot):
+def add_patient_data(all_patient_dataframe, patient_data, patient_number, patient_study, patient_type, foot, data_file_number):
+    all_patient_dataframe.loc[0, 'ID'] = patient_study + patient_type + patient_number
     all_patient_dataframe.loc[0, 'Patient_Number'] = patient_number
     all_patient_dataframe.loc[0, 'Study'] = patient_study
+    all_patient_dataframe.loc[0, 'Patient_Type'] = patient_type
     all_patient_dataframe.loc[0, 'Foot'] = foot
+    all_patient_dataframe.loc[0, 'file_number'] = data_file_number
 
     fft = fft_extractor()
     abs_en = AbsoluteEnergyCalculator()
     all_patient_dataframe = extract_features(all_patient_dataframe, patient_data, foot, fft, abs_en)
     return all_patient_dataframe
 
+
+
+def train_models(strat_train_set, strat_test_set):
+    strat_train_set, strat_train_labels, strat_test_set, strat_test_labels = clean_sets(strat_train_set, strat_test_set)
+
+    print(strat_test_labels.describe())
+
+    print_seperator()
+    print("Linear Regression:")
+    lr_calculator = LinearRegressionCalculator()
+    lr_calculator.train_model(strat_train_set, strat_train_labels, strat_test_set, strat_test_labels)
+    print_seperator()
+
+    print_seperator()
+    print("Decision Tree Regression:")
+    tree_calculator = DecisionTreeRegressionCalculator()
+    tree_calculator.train_model(strat_train_set, strat_train_labels, strat_test_set, strat_test_labels)
+    print_seperator()
+
+    print_seperator()
+    print("Random Forest Regression:")
+    rf_calculator = RandomForestRegressionCalculator()
+    rf_calculator.train_model(strat_train_set, strat_train_labels, strat_test_set, strat_test_labels)
+    print_seperator()
+
+
+
+def clean_sets(strat_train_set, strat_test_set):
+    data_col = ['Patient_Type', 'Foot', 'file_number', 'Median', 'Max', 'Min', 'Skewness', 'Std', 'Variance', 'Abs_Energy',
+                 'coeff_1', 'coeff_2', 'coeff_3', 'coeff_4', 'Gender']
+
+    strat_train_set['Foot'] = strat_train_set['Foot'].apply(lambda x: '0' if x == 'left' else '1')
+    strat_train_set['Foot'] = strat_train_set['Foot'].astype(int)
+    strat_test_set['Foot'] = strat_test_set['Foot'].apply(lambda x: '0' if x == 'left' else '1')
+    strat_test_set['Foot'] = strat_test_set['Foot'].astype(int)
+
+    strat_train_set['Patient_Type'] = strat_train_set['Patient_Type'].apply(lambda x: '0' if x == 'Co' else '1')
+    strat_train_set['Patient_Type'] = strat_train_set['Patient_Type'].astype(int)
+    strat_test_set['Patient_Type'] = strat_test_set['Patient_Type'].apply(lambda x: '0' if x == 'Co' else '1')
+    strat_test_set['Patient_Type'] = strat_test_set['Patient_Type'].astype(int)
+
+    strat_train_labels = strat_train_set.loc[:, 'HoehnYahr']
+    strat_train_set = strat_train_set[data_col]
+    strat_test_labels = strat_test_set.loc[:, 'HoehnYahr']
+    strat_test_set = strat_test_set[data_col]
+    return strat_train_set, strat_train_labels, strat_test_set, strat_test_labels
 
 # ----------------------------------------------------- GROUP 2 ------------------------------------------------------ #
 
@@ -191,6 +264,7 @@ def extract_eda_features(patient_data, col_name, all_patient_dataframe):
     all_patient_dataframe.loc[0, 'Skewness'] = tsfresh.feature_extraction.feature_calculators.skewness(patient_data[col_name])
     all_patient_dataframe.loc[0, 'Std'] = tsfresh.feature_extraction.feature_calculators.standard_deviation(patient_data[col_name])
     all_patient_dataframe.loc[0, 'Variance'] = tsfresh.feature_extraction.feature_calculators.variance(patient_data[col_name])
+
     return all_patient_dataframe
 
 
