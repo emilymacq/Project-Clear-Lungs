@@ -9,7 +9,7 @@ import pandas as pd
 
 
 # Constant Declarations
-input_folder_path = "../input/"
+input_folder_path = "../resources/input/"
 
 
 
