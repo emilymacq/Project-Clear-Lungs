@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fbb11b0-4d3c-4824-9cd6-c24d4932de78" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/untitled folder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled folder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Study_Ga.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Study_Ga.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/ml_models/RandomForestRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/ml_models/RandomForestRegression.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Parkinsons_ML$main.coverage" NAME="main Coverage Results" MODIFIED="1541485855014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/Parkinsons_ML$main.coverage" NAME="main Coverage Results" MODIFIED="1541545598530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/Parkinsons_ML$Study_Ga.coverage" NAME="Study_Ga Coverage Results" MODIFIED="1541349892648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
   <component name="DatabaseView">
@@ -34,30 +33,33 @@
     <session id="700804470">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="main" value="2" />
-          <entry key="py" value="23" />
+          <entry key="py" value="25" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="25" />
+          <entry key="Python" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6157" />
+          <entry key="Python" value="6172" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -65,7 +67,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="main" value="2" />
-          <entry key="py" value="6155" />
+          <entry key="py" value="6170" />
         </counts>
       </usages-collector>
     </session>
@@ -75,60 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/main">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-446">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/Study_Ga.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
-              <caret line="184" column="33" lean-forward="true" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
-              <folding>
-                <element signature="e#78#87#0" expanded="true" />
-                <element signature="e#1037#1210#0" />
-                <element signature="e#2723#3913#0" />
-                <element signature="e#2781#3879#0" />
-                <element signature="e#3962#4176#0" />
-                <element signature="e#4814#5038#0" />
-                <element signature="e#5202#5984#0" />
-                <element signature="e#6069#6833#0" />
-                <element signature="e#6914#7583#0" />
-                <element signature="e#7663#8442#0" />
-                <element signature="e#8642#8748#0" />
-                <element signature="e#8833#9008#0" />
-                <element signature="e#9086#9215#0" />
-                <marker date="1541485737294" expanded="true" signature="3741:3747" ph="..." />
-                <marker date="1541485737294" expanded="true" signature="5343:5345" ph="..." />
-                <marker date="1541485737294" expanded="false" signature="5472:6066" ph="..." />
-                <marker date="1541485737294" expanded="true" signature="8023:8255" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/ml_models/DecisionTreeRegression.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/ml_models/LinearRegression.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#1#19#0" expanded="true" />
-                <marker date="1541485852023" expanded="true" signature="203:639" ph="..." />
-                <marker date="1541485852023" expanded="true" signature="361:597" ph="..." />
-                <marker date="1541485852023" expanded="true" signature="758:1032" ph="..." />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -136,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/ml_models/RandomForestRegression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1033">
-              <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+            <state relative-caret-position="173">
+              <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
               <folding>
                 <element signature="e#3#21#0" expanded="true" />
               </folding>
@@ -145,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input/demographics.txt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/DataOverview.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="39" />
+            <state relative-caret-position="358">
+              <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -183,9 +133,9 @@
         <option value="$PROJECT_DIR$/main/feature_extraction/FFT.py" />
         <option value="$PROJECT_DIR$/main/storage/DataLoader.py" />
         <option value="$PROJECT_DIR$/main/ml_models/DecisionTreeRegression.py" />
-        <option value="$PROJECT_DIR$/main/ml_models/RandomForestRegression.py" />
         <option value="$PROJECT_DIR$/main/Study_Ga.py" />
         <option value="$PROJECT_DIR$/main/ml_models/LinearRegression.py" />
+        <option value="$PROJECT_DIR$/main/ml_models/RandomForestRegression.py" />
       </list>
     </option>
   </component>
@@ -216,12 +166,6 @@
               <item name="Parkinsons_ML" type="b2602c69:ProjectViewProjectNode" />
               <item name="Parkinsons_ML" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Parkinsons_ML" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Parkinsons_ML" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ml_models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,13 +291,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15831988" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16558966" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="1.0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36849314" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33424658" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,12 +310,12 @@
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32876712" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32876712" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32876712" />
-      <window_info anchor="right" x="0" y="0" width="270" height="600" id="Documentation" sideWeight="0.5020408" side_tool="true" weight="0.32956383" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.4979592" visible="true" weight="0.0" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49452055" weight="0.32956383" />
       <window_info anchor="right" id="Database" order="4" weight="0.32956383" />
+      <window_info anchor="right" x="0" y="0" width="270" height="600" id="Documentation" order="5" sideWeight="0.50547945" side_tool="true" weight="0.32956383" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,13 +351,6 @@
     <entry file="file://$PROJECT_DIR$/main/feature_extraction/BGS.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/DataOverview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/storage/DataWriter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -431,11 +369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#498#605#0" />
-            <element signature="e#657#895#0" />
-            <element signature="e#949#1128#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -443,9 +376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-          <folding>
-            <element signature="e#20#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -460,13 +390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input/demographics.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -491,20 +414,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/main">
+    <entry file="file://$PROJECT_DIR$/main/ml_models/LinearRegression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/ml_models/RandomForestRegression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1033">
-          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding>
-            <element signature="e#3#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="158">
+          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -515,42 +428,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/Study_Ga.py">
+    <entry file="file://$PROJECT_DIR$/input/demographics.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
-          <caret line="184" column="33" lean-forward="true" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
+        <state relative-caret-position="164">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/ml_models/RandomForestRegression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
           <folding>
-            <element signature="e#78#87#0" expanded="true" />
-            <element signature="e#1037#1210#0" />
-            <element signature="e#2723#3913#0" />
-            <element signature="e#2781#3879#0" />
-            <element signature="e#3962#4176#0" />
-            <element signature="e#4814#5038#0" />
-            <element signature="e#5202#5984#0" />
-            <element signature="e#6069#6833#0" />
-            <element signature="e#6914#7583#0" />
-            <element signature="e#7663#8442#0" />
-            <element signature="e#8642#8748#0" />
-            <element signature="e#8833#9008#0" />
-            <element signature="e#9086#9215#0" />
-            <marker date="1541485737294" expanded="true" signature="3741:3747" ph="..." />
-            <marker date="1541485737294" expanded="true" signature="5343:5345" ph="..." />
-            <marker date="1541485737294" expanded="false" signature="5472:6066" ph="..." />
-            <marker date="1541485737294" expanded="true" signature="8023:8255" ph="..." />
+            <element signature="e#3#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/ml_models/LinearRegression.py">
+    <entry file="file://$PROJECT_DIR$/main/Study_Ga.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="-1357">
+          <caret line="159" column="21" selection-start-line="159" selection-start-column="21" selection-end-line="159" selection-end-column="21" />
           <folding>
-            <element signature="e#1#19#0" expanded="true" />
-            <marker date="1541485852023" expanded="true" signature="203:639" ph="..." />
-            <marker date="1541485852023" expanded="true" signature="361:597" ph="..." />
-            <marker date="1541485852023" expanded="true" signature="758:1032" ph="..." />
+            <element signature="e#78#87#0" expanded="true" />
+            <marker date="1541485737294" expanded="true" signature="3741:3747" ph="..." />
+            <marker date="1541485737294" expanded="true" signature="5343:5345" ph="..." />
+            <marker date="1541485737294" expanded="false" signature="5472:6066" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/main">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/DataOverview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
         </state>
       </provider>
     </entry>

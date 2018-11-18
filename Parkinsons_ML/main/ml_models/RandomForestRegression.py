@@ -65,16 +65,17 @@ class RandomForestRegressionCalculator:
         grid_search.fit(train_set, train_labels)
 
         print(grid_search.best_params_)
-        # print(grid_search.best_estimator_)
+        print(grid_search.best_estimator_)
 
-        # cvres = grid_search.cv_results_
-        # for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
-        #     print(np.sqrt(-mean_score), params)
+        cvres = grid_search.cv_results_
+        for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
+             print(np.sqrt(-mean_score), params)
 
         final_model = grid_search.best_estimator_
 
         pred_values_1 = final_model.predict(test_set)
 
+        print("\n")
         list_test_labels = list(test_labels)
         for index in range(len(pred_values)):
             print("Actual_value: {} \t NFTPrediction: {:.2f} \t FTPrediction: {:.2f}".format(list_test_labels[index], pred_values[index], pred_values_1[index]))
