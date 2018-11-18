@@ -20,7 +20,7 @@ import pandas as pd
 class data_loader:
 
     def __init__(self):
-        self.input_folder_path = "../input/"
+        self.input_folder_path = "../resources/input/"
 
     def get_patient_file_paths(self):
         patient_file_paths = glob.glob(self.input_folder_path + 'patient_data/*')
